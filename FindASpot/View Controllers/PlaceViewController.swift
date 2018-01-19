@@ -103,7 +103,7 @@ extension PlaceViewController: MKMapViewDelegate {
 
 extension PlaceViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+        searchBar.resignFirstResponder()
         // validate venue search
         guard let text = placeView.venueSearchBar.text else { print("venue search is nil"); return }
         guard !text.isEmpty else { print("venue text is empty"); return }
