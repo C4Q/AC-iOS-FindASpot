@@ -9,10 +9,7 @@
 import Foundation
 import CoreLocation
 
-class LocationService: NSObject {
-    
-    // MARK:- View Life Cycle
-    
+class LocationService: NSObject {    
     // singleton manager
     // NB: Apple highly recommends having one instance of the location manager
     private override init(){
@@ -23,7 +20,6 @@ class LocationService: NSObject {
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
     }
     static let manager = LocationService()
-    
     private var locationManager: CLLocationManager!
 }
 
@@ -47,9 +43,9 @@ extension LocationService {
                     break
             }
         }
-        // update UI to inform User
         else {
-            // TODO: update UI accordinly
+            // update UI accordinly
+            status = CLLocationManager.authorizationStatus()
         }
         status = CLLocationManager.authorizationStatus()
         return status
